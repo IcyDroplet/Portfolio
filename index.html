@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shon Yudassin | Software Developer</title>
+<meta name="description" content="Computer Science student and software developer building Android applications, AI-powered tools, and software systems with a focus on practical problem solving and clean engineering." />
+<meta name="author" content="Shon Yudassin" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Shon Yudassin | Software Developer" />
+<meta property="og:description" content="Building Android apps, AI-powered tools, and real software systems." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   Editorial, premium, restrained. Inspired by Stripe / Linear /
+   Notion / Apple. Light by default, optional dark mode.
+   ============================================================ */
+:root {
+  /* Neutral base */
+  --bg:            #ffffff;
+  --bg-soft:       #fafafa;   /* warm off-white section tint */
+  --bg-tint:       #f6f7f9;   /* very low-contrast panel */
+  --surface:       #ffffff;
+  --border:        #e8e8ea;   /* hairline */
+  --border-strong: #d9d9de;
+
+  /* Text */
+  --text:          #18181b;
+  --text-soft:     #52525b;
+  --text-mute:     #8a8a93;
+
+  /* Accent — deep, professional indigo/blue */
+  --accent:        #3a5bdc;
+  --accent-ink:    #2c46b0;
+  --accent-soft:   #eef1fd;
+  --accent-line:   #c9d3f7;
+
+  /* Functional */
+  --good:          #1a8a52;
+  --good-soft:     #e7f4ed;
+  --warn:          #b45309;
+  --warn-soft:     #fcf2e4;
+
+  /* Depth — soft shadows, never glow */
+  --shadow-sm: 0 1px 2px rgba(24,24,27,.04), 0 1px 3px rgba(24,24,27,.05);
+  --shadow-md: 0 2px 4px rgba(24,24,27,.04), 0 8px 24px rgba(24,24,27,.06);
+  --shadow-lg: 0 4px 8px rgba(24,24,27,.04), 0 20px 48px rgba(24,24,27,.10);
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+
+  /* Layout */
+  --maxw: 1120px;
+  --gutter: clamp(20px, 5vw, 40px);
+  --nav-h: 64px;
+
+  /* Type scale (fluid) */
+  --fs-display: clamp(2.6rem, 1.5rem + 4.4vw, 4.4rem);
+  --fs-h2:      clamp(1.8rem, 1.3rem + 1.8vw, 2.6rem);
+  --fs-h3:      clamp(1.2rem, 1.0rem + 0.7vw, 1.5rem);
+  --fs-lead:    clamp(1.06rem, 1.0rem + 0.35vw, 1.25rem);
+  --fs-body:    1.0rem;
+  --fs-sm:      0.875rem;
+  --fs-xs:      0.78rem;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+[data-theme="dark"] {
+  --bg:            #0e0f12;
+  --bg-soft:       #131419;
+  --bg-tint:       #16181e;
+  --surface:       #17191f;
+  --border:        #26282f;
+  --border-strong: #34363f;
+
+  --text:          #f2f2f4;
+  --text-soft:     #b2b4bd;
+  --text-mute:     #7d7f8a;
+
+  --accent:        #7e95f5;
+  --accent-ink:    #9fb0fb;
+  --accent-soft:   #1a1f33;
+  --accent-line:   #2f3a63;
+
+  --good:          #4ec98a;
+  --good-soft:     #14241c;
+  --warn:          #e0a153;
+  --warn-soft:     #2a2113;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-md: 0 2px 4px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.45);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,.35), 0 24px 56px rgba(0,0,0,.6);
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; } /* JS handles smooth scroll */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; padding: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Typography helpers ---------- */
+.serif { font-family: 'Newsreader', Georgia, serif; }
+.mono  { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+h1,h2,h3,h4 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; }
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: var(--accent-line);
+}
+
+/* ---------- Layout primitives ---------- */
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+section { padding-block: clamp(64px, 9vw, 120px); }
+.section-soft { background: var(--bg-soft); border-block: 1px solid var(--border); }
+
+.section-head { max-width: 680px; margin-bottom: clamp(36px, 5vw, 60px); }
+.section-head h2 { font-size: var(--fs-h2); margin: 16px 0 14px; }
+.section-head p { font-size: var(--fs-lead); color: var(--text-soft); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 12px 22px; border-radius: var(--r-sm);
+  font-size: var(--fs-sm); font-weight: 600; letter-spacing: -0.01em;
+  transition: transform .25s var(--ease), background .25s var(--ease),
+              box-shadow .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 17px; height: 17px; }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--accent-ink); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border-strong); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn-text { padding: 8px 0; color: var(--accent); font-weight: 600; }
+.btn-text:hover { gap: 13px; }
+.btn-text svg { transition: transform .25s var(--ease); }
+.btn-text:hover svg { transform: translateX(3px); }
+.btn-sm { padding: 9px 15px; font-size: var(--fs-xs); }
+
+/* ---------- Scroll reveal ---------- */
+[data-reveal] {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+[data-reveal].in { opacity: 1; transform: none; }
+[data-reveal][data-delay="1"] { transition-delay: .08s; }
+[data-reveal][data-delay="2"] { transition-delay: .16s; }
+[data-reveal][data-delay="3"] { transition-delay: .24s; }
+[data-reveal][data-delay="4"] { transition-delay: .32s; }
+[data-reveal][data-delay="5"] { transition-delay: .40s; }
+
+/* ============================================================
+   SCROLL PROGRESS + BACK TO TOP
+   ============================================================ */
+#progress {
+  position: fixed; top: 0; left: 0; height: 2.5px; width: 0%;
+  background: var(--accent); z-index: 200; transition: width .1s linear;
+}
+#toTop {
+  position: fixed; right: 22px; bottom: 22px; z-index: 120;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-md); display: grid; place-items: center;
+  color: var(--text); opacity: 0; transform: translateY(12px) scale(.9);
+  pointer-events: none; transition: all .35s var(--ease);
+}
+#toTop.show { opacity: 1; transform: none; pointer-events: auto; }
+#toTop:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
+#toTop svg { width: 18px; height: 18px; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+header.nav {
+  position: sticky; top: 0; z-index: 150;
+  height: var(--nav-h);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease), background .3s var(--ease);
+}
+header.nav.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow-sm); }
+.nav-inner { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter);
+  height: 100%; display: flex; align-items: center; justify-content: space-between; }
+
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.02em; }
+.logo-mark {
+  width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center;
+  background: var(--accent); color: #fff; font-size: .8rem; font-weight: 800;
+  box-shadow: var(--shadow-sm);
+}
+.logo span { font-size: .96rem; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  position: relative; padding: 8px 12px; border-radius: 7px;
+  font-size: var(--fs-sm); font-weight: 500; color: var(--text-soft);
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.nav-links a:hover { color: var(--text); background: var(--bg-tint); }
+.nav-links a.active { color: var(--accent); }
+.nav-links a.active::after {
+  content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px;
+  height: 2px; border-radius: 2px; background: var(--accent);
+}
+
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center;
+  border: 1px solid var(--border); color: var(--text-soft);
+  transition: all .25s var(--ease);
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent-line); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: block; }
+[data-theme="dark"] .theme-toggle .moon { display: none; }
+
+.nav-cta { display: inline-flex; }
+.menu-btn { display: none; width: 38px; height: 38px; border-radius: 9px; place-items: center;
+  border: 1px solid var(--border); color: var(--text); }
+.menu-btn svg { width: 20px; height: 20px; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: var(--nav-h) 0 auto 0; z-index: 140;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-12px); opacity: 0; pointer-events: none;
+  transition: all .3s var(--ease);
+  padding: 12px var(--gutter) 22px;
+}
+.mobile-menu.open { transform: none; opacity: 1; pointer-events: auto; }
+.mobile-menu a {
+  display: block; padding: 13px 6px; font-size: 1.05rem; font-weight: 500;
+  color: var(--text); border-bottom: 1px solid var(--border);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu .btn { width: 100%; margin-top: 14px; }
+
+@media (max-width: 860px) {
+  .nav-links, .nav-cta { display: none; }
+  .menu-btn { display: grid; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero { position: relative; padding-top: clamp(48px, 7vw, 90px); padding-bottom: clamp(56px, 8vw, 110px); overflow: hidden; }
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; } }
+
+/* Background field — extremely subtle */
+.hero-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.hero-bg .glow {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: .5;
+}
+.hero-bg .g1 { width: 460px; height: 460px; top: -160px; right: -80px;
+  background: radial-gradient(circle, var(--accent-soft), transparent 70%); }
+.hero-bg .g2 { width: 360px; height: 360px; bottom: -140px; left: -100px;
+  background: radial-gradient(circle, var(--good-soft), transparent 70%); }
+.hero-bg .grid-lines {
+  position: absolute; inset: 0; opacity: .5;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+
+.availability {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 6px 13px 6px 11px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border);
+  font-size: var(--fs-xs); font-weight: 500; color: var(--text-soft);
+  box-shadow: var(--shadow-sm); margin-bottom: 24px;
+}
+.availability .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); position: relative; }
+.availability .dot::after { content:""; position:absolute; inset:-4px; border-radius:50%;
+  border: 1px solid var(--good); opacity: .4; animation: ping 2.4s var(--ease) infinite; }
+@keyframes ping { 0%{transform:scale(.6);opacity:.6} 100%{transform:scale(1.6);opacity:0} }
+
+.hero h1 { font-size: var(--fs-display); letter-spacing: -.035em; margin-bottom: 18px; }
+.hero h1 .accent { color: var(--accent); }
+.hero .title {
+  display: block; font-size: clamp(1.1rem, .9rem + .8vw, 1.45rem);
+  font-weight: 500; color: var(--text); margin-bottom: 18px;
+}
+.hero .lead { font-size: var(--fs-lead); color: var(--text-soft); max-width: 540px; margin-bottom: 30px; position: relative; }
+/* Ghost copy of the full text reserves the exact final height so the box
+   never grows/shrinks as the typewriter types or erases. */
+.hero .lead .lead-ghost { visibility: hidden; }
+.hero .lead .lead-live { position: absolute; inset: 0; }
+.hero .lead .caret {
+  display: inline-block; width: 2px; height: 1.05em; margin-left: 1px;
+  background: var(--accent); vertical-align: -0.16em; border-radius: 2px;
+  animation: blink 1s steps(1) infinite;
+}
+.hero .lead.done .caret { animation: none; opacity: 0; }
+@keyframes blink { 0%,50%{ opacity: 1; } 50.01%,100%{ opacity: 0; } }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+
+.tech-strip { display: flex; flex-wrap: wrap; gap: 8px; }
+.tech-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px; border-radius: 999px;
+  background: var(--bg-tint); border: 1px solid var(--border);
+  font-size: var(--fs-xs); font-weight: 500; color: var(--text-soft);
+  transition: all .22s var(--ease);
+}
+.tech-badge:hover { color: var(--accent); border-color: var(--accent-line); transform: translateY(-2px); }
+.tech-badge .d { width: 6px; height: 6px; border-radius: 2px; background: var(--accent); opacity: .7; }
+
+/* Hero visual: animated code card + floating chips */
+.hero-visual { position: relative; }
+.code-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden;
+}
+.code-top { display: flex; align-items: center; gap: 7px; padding: 13px 16px; border-bottom: 1px solid var(--border); }
+.code-top .tdot { width: 11px; height: 11px; border-radius: 50%; background: var(--border-strong); }
+.code-top .tdot:nth-child(1){ background:#f0625b;} .code-top .tdot:nth-child(2){ background:#f5bd4f;} .code-top .tdot:nth-child(3){ background:#5dc466;}
+.code-top .fname { margin-left: 8px; font-size: var(--fs-xs); color: var(--text-mute); }
+.code-body { padding: 18px 20px; font-family: 'JetBrains Mono', monospace; font-size: .82rem; line-height: 1.85; }
+.code-body .ln { display: block; opacity: 0; transform: translateX(-6px); animation: typein .4s var(--ease) forwards; }
+@keyframes typein { to { opacity: 1; transform: none; } }
+.c-key { color: var(--accent); } .c-str { color: var(--good); } .c-com { color: var(--text-mute); } .c-fn { color: var(--warn); } .c-pun { color: var(--text-mute); }
+[data-theme="dark"] .c-str { color: #6fd699; }
+
+.float-chip {
+  position: absolute; display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 13px; border-radius: 12px; background: var(--surface);
+  border: 1px solid var(--border); box-shadow: var(--shadow-md);
+  font-size: var(--fs-xs); font-weight: 600;
+  animation: floaty 5s ease-in-out infinite;
+}
+.float-chip svg, .float-chip .ic { width: 16px; height: 16px; color: var(--accent); }
+.float-chip.fc1 { top: -18px; left: -14px; animation-delay: 0s; }
+.float-chip.fc2 { bottom: 40px; right: -20px; animation-delay: 1.2s; }
+.float-chip.fc3 { bottom: -16px; left: 30px; animation-delay: 2.1s; }
+@keyframes floaty { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-9px);} }
+@media (max-width: 940px) { .float-chip.fc1{ left: 0; } .float-chip.fc2{ right: 0;} }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+@media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; } }
+
+.photo-frame { position: relative; }
+.photo-ph {
+  aspect-ratio: 4/5; border-radius: var(--r-lg); overflow: hidden;
+  background: var(--bg-tint);
+  border: 1px solid var(--border); box-shadow: var(--shadow-md);
+}
+.photo-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-badge {
+  position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 18px; padding: 12px 20px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+.photo-badge .pb { text-align: center; }
+.photo-badge .pb b { display: block; font-size: 1.1rem; }
+.photo-badge .pb small { font-size: .68rem; color: var(--text-mute); }
+
+.about-body p { color: var(--text-soft); margin-bottom: 16px; max-width: 60ch; }
+.about-body p strong { color: var(--text); font-weight: 600; }
+.about-lead { font-size: var(--fs-lead); color: var(--text) !important; }
+
+.facts { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 26px 0 30px; }
+.fact { display: flex; gap: 11px; align-items: flex-start; padding: 13px 15px;
+  background: var(--bg-tint); border: 1px solid var(--border); border-radius: var(--r-sm); }
+.fact svg { width: 17px; height: 17px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.fact b { font-size: var(--fs-sm); display: block; }
+.fact span { font-size: var(--fs-xs); color: var(--text-mute); }
+
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+  border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+.stat { padding: 22px 18px; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat .num { font-size: clamp(1.7rem,1.3rem+1vw,2.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--accent); }
+.stat .lbl { font-size: var(--fs-xs); color: var(--text-soft); margin-top: 2px; }
+@media (max-width: 560px) {
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .stat:nth-child(2){ border-right: none; }
+  .stat:nth-child(1),.stat:nth-child(2){ border-bottom: 1px solid var(--border); }
+  .facts { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 880px) { .skills-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
+
+.skill-card {
+  padding: 24px; border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--border);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-line); }
+.skill-ic {
+  width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent); margin-bottom: 16px;
+  transition: transform .3s var(--ease);
+}
+.skill-card:hover .skill-ic { transform: scale(1.08) rotate(-4deg); }
+.skill-ic svg { width: 21px; height: 21px; }
+.skill-card h3 { font-size: var(--fs-h3); margin-bottom: 7px; }
+.skill-card p { font-size: var(--fs-sm); color: var(--text-soft); margin-bottom: 16px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tags span {
+  font-size: var(--fs-xs); font-weight: 500; padding: 4px 10px; border-radius: 6px;
+  background: var(--bg-tint); border: 1px solid var(--border); color: var(--text-soft);
+  transition: all .2s var(--ease);
+}
+.skill-card:hover .skill-tags span { border-color: var(--accent-line); }
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.projects-list { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 48px); }
+.project {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-xl); overflow: hidden;
+  transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.project:hover { box-shadow: var(--shadow-lg); border-color: var(--border-strong); }
+.project.reverse .project-visual { order: 2; }
+@media (max-width: 880px) {
+  .project, .project.reverse { grid-template-columns: 1fr; }
+  .project.reverse .project-visual { order: 0; }
+}
+
+.project-visual {
+  position: relative; min-height: 300px; display: grid; place-items: center;
+  padding: 36px; overflow: hidden;
+  background: linear-gradient(150deg, var(--bg-tint), var(--bg-soft));
+  border-right: 1px solid var(--border);
+}
+.project.reverse .project-visual { border-right: none; border-left: 1px solid var(--border); }
+@media (max-width: 880px) {
+  .project-visual, .project.reverse .project-visual { border: none; border-bottom: 1px solid var(--border); }
+}
+
+/* Real screenshot inside a project visual.
+   object-fit: contain shows the WHOLE image (no cropping); the panel's
+   gradient frames it. Works for both tall phone shots and wide desktop shots. */
+.project-shot {
+  max-width: 100%; max-height: 380px;
+  width: auto; height: auto;
+  object-fit: contain; border-radius: var(--r-md);
+  border: 1px solid var(--border); box-shadow: var(--shadow-lg);
+  background: var(--surface);
+  transition: transform .5s var(--ease);
+}
+/* Tall portrait screenshots (e.g. phone) get a taller cap so they read well */
+.project-shot.tall { max-height: 460px; border-radius: 18px; }
+.project:hover .project-shot { transform: translateY(-5px) scale(1.01); }
+
+/* Phone mockup */
+.phone {
+  width: 184px; aspect-ratio: 9/19; border-radius: 26px; padding: 8px;
+  background: #1c1d22; box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.06);
+  position: relative; transition: transform .5s var(--ease);
+}
+.project:hover .phone { transform: translateY(-6px) rotate(-1deg); }
+.phone::before { content:""; position:absolute; top:13px; left:50%; transform:translateX(-50%);
+  width:46px; height:5px; border-radius:3px; background:#3a3b42; z-index:2; }
+.phone-screen { width:100%; height:100%; border-radius:19px; overflow:hidden;
+  background: linear-gradient(170deg, #eef6f0, #dceede); display:flex; flex-direction:column; }
+.phone-app-top { padding: 26px 14px 12px; background: linear-gradient(135deg,#2f8f5b,#247a4b); color:#fff; }
+.phone-app-top .pt-h { font-size:.7rem; font-weight:700; }
+.phone-app-top .pt-s { font-size:.52rem; opacity:.85; }
+.phone-card { margin: 9px 11px 0; background:#fff; border-radius:10px; padding:9px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.phone-card .pc-row { display:flex; gap:7px; align-items:center; }
+.phone-card .pc-img { width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg,#7fc99a,#3e9d68); flex-shrink:0; }
+.phone-card .pc-l1 { height:6px; width:62%; border-radius:3px; background:#d8e6dd; }
+.phone-card .pc-l2 { height:5px; width:42%; border-radius:3px; background:#e6efe9; margin-top:5px; }
+.phone-chips { display:flex; gap:5px; margin:9px 11px 0; flex-wrap:wrap; }
+.phone-chips i { font-style:normal; font-size:.5rem; padding:3px 7px; border-radius:999px; background:#fff; color:#2f8f5b; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+
+/* Generic visual panels (mod / script / web) */
+.visual-window {
+  width: 100%; max-width: 360px; border-radius: var(--r-md); overflow: hidden;
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-md);
+  transition: transform .5s var(--ease);
+}
+.project:hover .visual-window { transform: translateY(-5px); }
+.vw-top { display:flex; align-items:center; gap:6px; padding:9px 12px; border-bottom:1px solid var(--border); background: var(--bg-tint); }
+.vw-top .vd { width:9px;height:9px;border-radius:50%;background:var(--border-strong); }
+.vw-top .vt { margin-left:6px; font-size:.66rem; color:var(--text-mute); font-family:'JetBrains Mono',monospace; }
+.vw-body { padding: 16px; font-family:'JetBrains Mono',monospace; font-size:.7rem; line-height:1.8; color:var(--text-soft); }
+.vw-body .l { display:block; white-space:nowrap; }
+
+/* Minecraft-style HUD preview */
+.mc-scene { width:100%; max-width:360px; aspect-ratio:16/10; border-radius:var(--r-md); overflow:hidden;
+  position:relative; background:linear-gradient(180deg,#5b7da8 0%,#6f93b8 45%,#3c5a3a 45%,#2e4a2d 100%);
+  border:1px solid var(--border); box-shadow:var(--shadow-md); transition:transform .5s var(--ease); }
+.project:hover .mc-scene { transform:translateY(-5px); }
+.mc-hud { position:absolute; top:12px; left:12px; padding:8px 10px; border-radius:6px;
+  background:rgba(12,14,20,.72); color:#e8eef7; font-family:'JetBrains Mono',monospace; font-size:.58rem; line-height:1.7; backdrop-filter:blur(2px); }
+.mc-hud .hh { color:#8fb4ff; font-weight:600; }
+.mc-hud .hv { color:#ffd479; }
+.mc-hud .hg { color:#7ee0a0; }
+.mc-boss { position:absolute; top:12px; right:12px; padding:6px 9px; border-radius:6px;
+  background:rgba(120,20,30,.8); color:#ffd; font-family:'JetBrains Mono',monospace; font-size:.55rem; }
+.mc-bar { position:absolute; bottom:14px; left:14px; right:14px; height:7px; border-radius:4px; background:rgba(0,0,0,.4); overflow:hidden; }
+.mc-bar i { display:block; height:100%; width:62%; background:linear-gradient(90deg,#e0556b,#f0a04b); }
+
+/* Recolor swatch preview */
+.swatch-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; width:100%; max-width:300px; }
+.swatch { aspect-ratio:1; border-radius:8px; box-shadow:var(--shadow-sm); transition:transform .4s var(--ease); }
+.project:hover .swatch { transform:scale(1.04); }
+.swatch:nth-child(odd){ transition-delay:.04s; }
+
+.project-body { padding: clamp(28px, 3.5vw, 44px); display: flex; flex-direction: column; justify-content: center; }
+.project-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.project-tag {
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent);
+}
+.project-tag.flagship { background: var(--accent); color: #fff; }
+.project-tag.wip { background: var(--warn-soft); color: var(--warn); }
+.project-body h3 { font-size: clamp(1.4rem,1.1rem+1vw,1.9rem); margin-bottom: 12px; }
+.project-body .desc { color: var(--text-soft); margin-bottom: 18px; }
+.feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-bottom: 20px; }
+@media (max-width: 480px){ .feat-list { grid-template-columns: 1fr; } }
+.feat-list li { font-size: var(--fs-sm); color: var(--text-soft); display: flex; gap: 8px; align-items: flex-start; }
+.feat-list li svg { width: 15px; height: 15px; color: var(--good); flex-shrink: 0; margin-top: 4px; }
+.proj-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+.proj-tech span { font-size: var(--fs-xs); font-weight:500; padding: 4px 10px; border-radius: 999px;
+  background: var(--bg-tint); border: 1px solid var(--border); color: var(--text-soft); }
+.proj-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ============================================================
+   TECHNICAL DEEP DIVE (accordion + flow diagrams)
+   ============================================================ */
+.dive-list { display: flex; flex-direction: column; gap: 14px; }
+.dive {
+  border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
+  overflow: hidden; transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.dive.open { border-color: var(--accent-line); box-shadow: var(--shadow-md); }
+.dive-head {
+  width: 100%; display: flex; align-items: center; gap: 16px; text-align: left;
+  padding: 20px 22px; transition: background .25s var(--ease);
+}
+.dive-head:hover { background: var(--bg-tint); }
+.dive-num { font-family:'JetBrains Mono',monospace; font-size: var(--fs-sm); color: var(--accent); font-weight: 500; }
+.dive-head .dh-main { flex: 1; }
+.dive-head h3 { font-size: var(--fs-h3); }
+.dive-head p { font-size: var(--fs-sm); color: var(--text-mute); margin-top: 2px; }
+.dive-toggle { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border);
+  display: grid; place-items: center; color: var(--text-soft); flex-shrink: 0; transition: all .3s var(--ease); }
+.dive.open .dive-toggle { background: var(--accent); color: #fff; border-color: var(--accent); transform: rotate(45deg); }
+.dive-toggle svg { width: 16px; height: 16px; }
+
+.dive-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .42s var(--ease); }
+.dive.open .dive-content { grid-template-rows: 1fr; }
+.dive-inner { overflow: hidden; }
+.dive-pad { padding: 4px 22px 26px; opacity: 0; transform: translateY(-6px); transition: opacity .35s var(--ease) .06s, transform .35s var(--ease) .06s; }
+.dive.open .dive-pad { opacity: 1; transform: none; }
+.dive-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 8px; }
+@media (max-width: 760px){ .dive-cols { grid-template-columns: 1fr; } }
+.dive h4 { font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .08em; color: var(--text-mute); margin: 18px 0 12px; }
+
+/* Flow diagram */
+.flow { display: flex; flex-direction: column; gap: 0; }
+.flow-step {
+  display: flex; align-items: center; gap: 12px; padding: 11px 14px;
+  background: var(--bg-tint); border: 1px solid var(--border); border-radius: var(--r-sm);
+  font-size: var(--fs-sm); font-weight: 500;
+}
+.flow-step .fs-ic { width: 26px; height: 26px; border-radius: 7px; background: var(--surface);
+  border: 1px solid var(--border); display: grid; place-items: center; color: var(--accent); flex-shrink: 0; font-family:'JetBrains Mono',monospace; font-size:.72rem; }
+.flow-arrow { height: 18px; width: 1px; margin-left: 27px; background: var(--accent-line); position: relative; }
+.flow-arrow::after { content:""; position:absolute; bottom:-1px; left:-3px; width:7px; height:7px;
+  border-right:1px solid var(--accent-line); border-bottom:1px solid var(--accent-line); transform: rotate(45deg); }
+
+/* ER / schema tags */
+.schema-row { display:flex; flex-wrap:wrap; gap:8px; }
+.schema-tbl { font-family:'JetBrains Mono',monospace; font-size:var(--fs-xs); padding:6px 12px; border-radius:7px;
+  background:var(--accent-soft); color:var(--accent-ink); border:1px solid var(--accent-line); }
+
+.dive ul.bullets li { font-size: var(--fs-sm); color: var(--text-soft); padding: 5px 0 5px 20px; position: relative; }
+.dive ul.bullets li::before { content:""; position:absolute; left:2px; top:13px; width:6px; height:6px; border-radius:2px; background:var(--accent); }
+
+.learn-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top: 4px; }
+.learn-chips span { font-size:var(--fs-xs); padding:5px 11px; border-radius:999px; background:var(--good-soft); color:var(--good); font-weight:500; }
+
+/* ============================================================
+   EXPERIENCE TIMELINE
+   ============================================================ */
+.timeline { position: relative; max-width: 760px; }
+.timeline::before { content:""; position:absolute; left: 8px; top: 6px; bottom: 6px; width: 2px;
+  background: linear-gradient(var(--accent-line), var(--border)); }
+.tl-item { position: relative; padding-left: 38px; padding-bottom: 34px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--surface); border: 2px solid var(--accent); display:grid; place-items:center; }
+.tl-dot::after { content:""; width:7px; height:7px; border-radius:50%; background: var(--accent); }
+.tl-period { font-size: var(--fs-xs); font-weight: 600; color: var(--accent); letter-spacing: .04em; }
+.tl-item h3 { font-size: var(--fs-h3); margin: 5px 0 3px; }
+.tl-role { font-size: var(--fs-sm); color: var(--text-mute); margin-bottom: 12px; }
+.tl-item ul.bullets li { color: var(--text-soft); }
+
+/* ============================================================
+   GITHUB
+   ============================================================ */
+.gh-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 760px){ .gh-grid { grid-template-columns: 1fr; } }
+.repo-card { padding: 22px; border:1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); display:flex; flex-direction:column; }
+.repo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-line); }
+.repo-top { display:flex; align-items:center; gap:9px; margin-bottom: 9px; }
+.repo-top svg { width: 18px; height:18px; color: var(--text-mute); }
+.repo-top h3 { font-size: 1.05rem; }
+.repo-card .rd { font-size: var(--fs-sm); color: var(--text-soft); margin-bottom: 16px; flex:1; }
+.repo-foot { display:flex; align-items:center; gap:16px; font-size: var(--fs-xs); color: var(--text-mute); }
+.repo-foot .rf { display:flex; align-items:center; gap:5px; }
+.repo-foot .rf .lang { width:10px; height:10px; border-radius:50%; }
+.repo-foot svg { width:13px; height:13px; }
+
+.gh-cta { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  margin-top: 24px; padding: 22px 26px; border:1px solid var(--border); border-radius: var(--r-md);
+  background: var(--bg-tint); }
+.gh-cta p { font-size: var(--fs-sm); color: var(--text-soft); }
+.gh-cta b { color: var(--text); }
+
+/* Contribution graph (decorative) */
+.contrib { display:grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 3px; margin-top: 18px; overflow:hidden; }
+.contrib i { width: 11px; height: 11px; border-radius: 3px; background: var(--bg-tint); }
+.contrib i.l1{ background: var(--accent-line);} .contrib i.l2{ background: color-mix(in srgb,var(--accent) 55%, var(--bg)); }
+.contrib i.l3{ background: var(--accent);} .contrib i.l4{ background: var(--accent-ink);}
+
+/* ============================================================
+   RESUME
+   ============================================================ */
+.resume-wrap { display:grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px,4vw,52px); align-items:center; }
+@media (max-width: 820px){ .resume-wrap { grid-template-columns: 1fr; } }
+.resume-doc {
+  aspect-ratio: 1/1.3; background: #fff; border:1px solid var(--border); border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg); padding: 26px; overflow:hidden; transform: rotate(-1.5deg);
+  transition: transform .5s var(--ease);
+}
+.resume-doc:hover { transform: rotate(0); }
+.rd-h { height: 14px; width: 50%; background:#222; border-radius:3px; }
+.rd-s { height: 8px; width: 34%; background:#3a5bdc; border-radius:3px; margin-top:7px; }
+.rd-line { height: 6px; border-radius:3px; background:#e4e4e7; margin-top:8px; }
+.rd-sec { height:8px; width:28%; background:#c7d0f4; border-radius:3px; margin:18px 0 8px; }
+[data-theme="dark"] .resume-doc { background:#f7f7f8; }
+
+.resume-side h3 { font-size: var(--fs-h2); margin-bottom: 14px; }
+.resume-side p { color: var(--text-soft); margin-bottom: 22px; }
+.resume-side .res-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.res-points { margin: 20px 0 26px; }
+.res-points li { display:flex; gap:10px; font-size:var(--fs-sm); color:var(--text-soft); padding:6px 0; }
+.res-points svg { width:16px;height:16px;color:var(--good); flex-shrink:0; margin-top:3px; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid { display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px,4vw,56px); align-items:start; }
+@media (max-width: 820px){ .contact-grid { grid-template-columns: 1fr; } }
+.contact-info h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
+.contact-info > p { color: var(--text-soft); margin-bottom: 26px; max-width: 42ch; }
+.contact-channels { display:flex; flex-direction:column; gap: 12px; }
+.channel { display:flex; align-items:center; gap:13px; padding: 14px 16px; border:1px solid var(--border);
+  border-radius: var(--r-sm); background: var(--surface); transition: all .25s var(--ease); }
+.channel:hover { border-color: var(--accent-line); transform: translateX(3px); }
+.channel .ch-ic { width:40px;height:40px; border-radius:10px; background:var(--accent-soft); color:var(--accent);
+  display:grid; place-items:center; flex-shrink:0; }
+.channel .ch-ic svg { width:19px;height:19px; }
+.channel b { font-size: var(--fs-sm); display:block; }
+.channel span { font-size: var(--fs-xs); color: var(--text-mute); }
+
+.contact-form { padding: clamp(24px,3vw,34px); border:1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--surface); box-shadow: var(--shadow-md); }
+.field { margin-bottom: 16px; }
+.field label { font-size: var(--fs-sm); font-weight: 600; display:block; margin-bottom: 7px; }
+.field input, .field textarea {
+  width: 100%; padding: 12px 14px; border:1px solid var(--border-strong); border-radius: var(--r-sm);
+  background: var(--bg); color: var(--text); font: inherit; font-size: var(--fs-sm);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.field input:focus, .field textarea:focus { outline:none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft); }
+.field textarea { resize: vertical; min-height: 120px; }
+.field.row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width: 480px){ .field.row { grid-template-columns:1fr; } }
+.field .err { font-size: var(--fs-xs); color: #d6453d; margin-top: 5px; display:none; }
+.field.invalid input, .field.invalid textarea { border-color:#d6453d; }
+.field.invalid .err { display:block; }
+.form-status { font-size: var(--fs-sm); margin-top: 14px; padding: 12px 14px; border-radius: var(--r-sm);
+  background: var(--good-soft); color: var(--good); display:none; align-items:center; gap:9px; }
+.form-status.show { display:flex; }
+.form-status svg { width:17px;height:17px; }
+.contact-form .btn { width: 100%; margin-top: 4px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer.site {
+  border-top: 1px solid var(--border); background: var(--bg-soft);
+  padding-block: 48px 30px;
+}
+.foot-grid { display:flex; justify-content:space-between; align-items:flex-start; gap: 30px; flex-wrap: wrap; }
+.foot-brand p { font-size: var(--fs-sm); color: var(--text-soft); max-width: 32ch; margin-top: 12px; }
+.foot-links { display:flex; gap: 40px; flex-wrap: wrap; }
+.foot-col h4 { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing:.1em; color: var(--text-mute); margin-bottom: 12px; }
+.foot-col a { display:block; font-size: var(--fs-sm); color: var(--text-soft); padding: 4px 0; transition: color .2s; }
+.foot-col a:hover { color: var(--accent); }
+.foot-bot { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--border);
+  display:flex; justify-content: space-between; align-items:center; gap: 14px; flex-wrap: wrap;
+  font-size: var(--fs-xs); color: var(--text-mute); }
+.foot-social { display:flex; gap: 10px; }
+.foot-social a { width: 34px; height: 34px; border-radius: 9px; border:1px solid var(--border);
+  display:grid; place-items:center; color: var(--text-soft); transition: all .25s var(--ease); }
+.foot-social a:hover { color: var(--accent); border-color: var(--accent-line); transform: translateY(-2px); }
+.foot-social svg { width: 17px; height: 17px; }
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div id="progress"></div>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo" aria-label="Home">
+      <span class="logo-mark">SY</span>
+      <span>Shon&nbsp;Yudassin</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#deep-dive">Engineering</a>
+      <a href="#experience">Experience</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Get in touch</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#deep-dive">Engineering</a>
+  <a href="#experience">Experience</a>
+  <a href="#resume">Resume</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Get in touch</a>
+</div>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="availability" data-reveal><span class="dot"></span> Open to internships &amp; freelance work</span>
+      <h1 data-reveal data-delay="1">Shon Yudassin<span class="accent">.</span></h1>
+      <span class="title" data-reveal data-delay="2">Computer Science Student &amp; Software Developer</span>
+      <p class="lead" id="heroLead" data-reveal data-delay="3" data-text="Building Android applications, AI-powered tools, software solutions, and game modifications, with a focus on practical problem solving and clean user experience."><span class="lead-ghost" aria-hidden="true">Building Android applications, AI-powered tools, software solutions, and game modifications, with a focus on practical problem solving and clean user experience.</span><span class="lead-live"><span class="type"></span><span class="caret" aria-hidden="true"></span></span></p>
+
+      <div class="hero-actions" data-reveal data-delay="4">
+        <a href="#projects" class="btn btn-primary">
+          View Projects
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="assets/resume.pdf" class="btn btn-ghost" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Resume
+        </a>
+      </div>
+
+      <div class="tech-strip" data-reveal data-delay="5">
+        <span class="tech-badge"><span class="d"></span>Java</span>
+        <span class="tech-badge"><span class="d"></span>Android Studio</span>
+        <span class="tech-badge"><span class="d"></span>Python</span>
+        <span class="tech-badge"><span class="d"></span>AI Integration</span>
+        <span class="tech-badge"><span class="d"></span>REST APIs</span>
+        <span class="tech-badge"><span class="d"></span>Git</span>
+        <span class="tech-badge"><span class="d"></span>C#</span>
+        <span class="tech-badge"><span class="d"></span>Software Engineering</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal data-delay="3">
+      <div class="float-chip fc1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Android</div>
+      <div class="float-chip fc2"><span class="ic">✦</span> AI-Powered</div>
+      <div class="float-chip fc3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg> Clean Code</div>
+
+      <div class="code-card">
+        <div class="code-top"><i class="tdot"></i><i class="tdot"></i><i class="tdot"></i><span class="fname mono">Developer.java</span></div>
+        <div class="code-body" id="codeBody">
+          <span class="ln"><span class="c-key">public class</span> <span class="c-fn">Developer</span> <span class="c-pun">{</span></span>
+          <span class="ln">&nbsp;&nbsp;<span class="c-key">String</span> role <span class="c-pun">=</span> <span class="c-str">"Software Developer"</span><span class="c-pun">;</span></span>
+          <span class="ln">&nbsp;&nbsp;<span class="c-key">String[]</span> focus <span class="c-pun">=</span> <span class="c-pun">{</span></span>
+          <span class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"Android"</span><span class="c-pun">,</span> <span class="c-str">"AI Tools"</span><span class="c-pun">,</span> <span class="c-str">"Systems"</span></span>
+          <span class="ln">&nbsp;&nbsp;<span class="c-pun">};</span></span>
+          <span class="ln">&nbsp;</span>
+          <span class="ln">&nbsp;&nbsp;<span class="c-key">boolean</span> <span class="c-fn">solvesProblems</span><span class="c-pun">()</span> <span class="c-pun">{</span></span>
+          <span class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-key">return</span> <span class="c-key">true</span><span class="c-pun">;</span> <span class="c-com">// always</span></span>
+          <span class="ln">&nbsp;&nbsp;<span class="c-pun">}</span></span>
+          <span class="ln"><span class="c-pun">}</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section id="about" class="section-soft">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">About</span>
+      <h2>A developer who builds real, working systems.</h2>
+      <p>I care less about toy demos and more about shipping software that solves an actual problem end-to-end.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="photo-frame" data-reveal>
+        <div class="photo-ph">
+          <img src="assets/photo.png" alt="Shon Yudassin" />
+        </div>
+        <div class="photo-badge">
+          <div class="pb"><b>CS</b><small>Student</small></div>
+          <div class="pb"><b>Builder</b><small>Mindset</small></div>
+        </div>
+      </div>
+
+      <div class="about-body" data-reveal data-delay="1">
+        <p class="about-lead">I'm a Computer Science student and software developer who enjoys turning ideas into shipped products, from Android apps with AI inside them to automation scripts and game modifications.</p>
+        <p>My work spans <strong>mobile development</strong>, <strong>AI integration</strong>, and <strong>backend &amp; tooling</strong>. I built <strong>Plantify</strong>, an AI-powered Android app that identifies plants and helps people care for them; I'm building <strong>Voidline</strong>, a performance-focused Minecraft mod in Kotlin; and I've shipped Python automation that recolors hundreds of texture assets in a single run.</p>
+        <p>I'm drawn to the parts of software most people skip: handling errors gracefully, keeping work off the main thread, persisting state correctly, and designing things so they stay clean as they grow. I learn fast, ask good questions, and care about the people who actually use what I build.</p>
+
+        <div class="facts">
+          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><div><b>CS Student</b><span>Studying software engineering</span></div></div>
+          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg><div><b>Android Focus</b><span>Java, SDK, Firebase</span></div></div>
+          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><div><b>AI Integration</b><span>OpenAI, vision APIs</span></div></div>
+          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><div><b>Always Learning</b><span>New stacks, new domains</span></div></div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="num" data-count="4" data-suffix="">0</div><div class="lbl">Projects Built</div></div>
+          <div class="stat"><div class="num" data-count="3" data-suffix="+">0</div><div class="lbl">Years Programming</div></div>
+          <div class="stat"><div class="num" data-count="5" data-suffix="">0</div><div class="lbl">Languages</div></div>
+          <div class="stat"><div class="num" data-count="100" data-suffix="s">0</div><div class="lbl">Assets Automated</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Skills</span>
+      <h2>Tools I reach for, organized by what they're&nbsp;for.</h2>
+      <p>Not a list of percentages. It's a map of where I'm comfortable and what I use to get things done.</p>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-card" data-reveal>
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Languages</h3>
+        <p>The core languages I write production and personal code in.</p>
+        <div class="skill-tags"><span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span><span>C#</span><span>Kotlin</span></div>
+      </article>
+
+      <article class="skill-card" data-reveal data-delay="1">
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Mobile Development</h3>
+        <p>Native Android apps with real navigation, storage and lifecycle handling.</p>
+        <div class="skill-tags"><span>Android Studio</span><span>Android SDK</span><span>Fragments</span><span>Mobile UI Design</span></div>
+      </article>
+
+      <article class="skill-card" data-reveal data-delay="2">
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+        <h3>AI &amp; APIs</h3>
+        <p>Wiring large language models and external services into real product flows.</p>
+        <div class="skill-tags"><span>OpenAI API</span><span>REST APIs</span><span>AI Integration</span><span>ML Concepts</span></div>
+      </article>
+
+      <article class="skill-card" data-reveal>
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+        <h3>Software Engineering</h3>
+        <p>Writing code that's structured to be read, debugged, and extended.</p>
+        <div class="skill-tags"><span>OOP</span><span>Design Patterns</span><span>Debugging</span><span>Problem Solving</span><span>Architecture</span></div>
+      </article>
+
+      <article class="skill-card" data-reveal data-delay="1">
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 6h6a3 3 0 0 1 3 3M6 9v6"/></svg></div>
+        <h3>Tools &amp; Workflow</h3>
+        <p>The day-to-day environment I work and version control in.</p>
+        <div class="skill-tags"><span>Git</span><span>GitHub</span><span>IntelliJ IDEA</span><span>Android Studio</span><span>VS Code</span><span>AI-assisted tools</span></div>
+      </article>
+
+      <article class="skill-card" data-reveal data-delay="2">
+        <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M2 20h20M9 16v4M15 16v4"/></svg></div>
+        <h3>Full-Stack &amp; Backend</h3>
+        <p>Exploring end-to-end web systems: APIs, databases and processing pipelines.</p>
+        <div class="skill-tags"><span>Next.js</span><span>FastAPI</span><span>PostgreSQL</span><span>Firebase</span><span>Pillow / Imaging</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROJECTS ============================ -->
+<section id="projects" class="section-soft">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Featured Work</span>
+      <h2>Projects I've designed, built, and&nbsp;shipped.</h2>
+      <p>Four projects that show range, from a polished Android product to backend automation and a performance-focused game mod.</p>
+    </div>
+
+    <div class="projects-list">
+
+      <!-- Project 1: Plantify -->
+      <article class="project" data-reveal>
+        <div class="project-visual">
+          <img class="project-shot tall" src="assets/Plantify.jpeg" alt="Plantify app screenshot" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-tag flagship">Flagship</span>
+            <span class="project-tag">Android · AI</span>
+          </div>
+          <h3>Plantify</h3>
+          <p class="desc">An AI-powered Android app that identifies plants from a photo, gives personalized care guidance, tracks plants in a personal garden, and reminds users when to water, with a built-in plant-care chatbot, "BloomAI".</p>
+          <ul class="feat-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Camera plant detection</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Garden management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>BloomAI chatbot</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Watering reminders</li>
+          </ul>
+          <div class="proj-tech"><span>Java</span><span>Android Studio</span><span>OpenAI API</span><span>Plant.id API</span><span>OpenWeather API</span><span>Firebase</span><span>OkHttp</span></div>
+          <div class="proj-actions">
+            <a href="#deep-dive" class="btn btn-primary btn-sm">View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
+              Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Voidline -->
+      <article class="project reverse" data-reveal>
+        <div class="project-visual">
+          <div class="mc-scene">
+            <div class="mc-hud">
+              <div class="hh">⚔ VOIDLINE · Slayer</div>
+              <div>Tier: <span class="hv">V</span> &nbsp; Combat: <span class="hg">7</span></div>
+              <div>Vengeance: <span class="hv">ready</span></div>
+              <div>Spawn in: <span class="hg">0:42</span></div>
+            </div>
+            <div class="mc-boss">Voidgloom Seraph ⛧</div>
+            <div class="mc-bar"><i></i></div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-tag wip">In Progress</span>
+            <span class="project-tag">Game Mod · Kotlin</span>
+          </div>
+          <h3>Voidline</h3>
+          <p class="desc">A Minecraft Forge 1.8.9 modification built in Kotlin that enhances Hypixel SkyBlock Slayer gameplay with clean HUD overlays, boss-fight tracking, and event-driven feature modules, all designed to stay low-clutter and performant.</p>
+          <ul class="feat-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Custom Slayer HUD</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Boss fight tracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Vengeance &amp; laser alerts</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Modular, togglable UI</li>
+          </ul>
+          <div class="proj-tech"><span>Kotlin</span><span>Java</span><span>Minecraft Forge</span><span>Mixins</span><span>Elementa UI</span><span>Event-driven</span></div>
+          <div class="proj-actions">
+            <a href="#deep-dive" class="btn btn-primary btn-sm">Technical Breakdown
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="https://github.com/IcyDroplet/Voidline" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
+              Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: Recoloring Tool -->
+      <article class="project" data-reveal>
+        <div class="project-visual">
+          <div class="swatch-grid">
+            <div class="swatch" style="background:#f2c8da"></div><div class="swatch" style="background:#e89fc0"></div><div class="swatch" style="background:#d870a0"></div><div class="swatch" style="background:#b84a82"></div>
+            <div class="swatch" style="background:#e8b0cb"></div><div class="swatch" style="background:#d98ab6"></div><div class="swatch" style="background:#c25f95"></div><div class="swatch" style="background:#9e3b6e"></div>
+            <div class="swatch" style="background:#dba0c4"></div><div class="swatch" style="background:#c77aac"></div><div class="swatch" style="background:#a8528a"></div><div class="swatch" style="background:#7e2f5c"></div>
+            <div class="swatch" style="background:#cf8fb8"></div><div class="swatch" style="background:#b56a9f"></div><div class="swatch" style="background:#8f4577"></div><div class="swatch" style="background:#662549"></div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-tag">Automation · Python</span>
+          </div>
+          <h3>Texture Pack Recoloring Tool</h3>
+          <p class="desc">A Python automation tool that mass-processes and recolors Minecraft texture assets for resource-pack development. It walks an entire pack, applies per-category HSV hue shifts and gradients, and exports recolored variants, turning hours of manual editing into a single script run.</p>
+          <ul class="feat-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Batch processing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>HSV hue shifting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Recursive folder traversal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Transparency preserved</li>
+          </ul>
+          <div class="proj-tech"><span>Python</span><span>Pillow (PIL)</span><span>colorsys</span><span>Image Processing</span><span>HSV Manipulation</span></div>
+          <div class="proj-actions">
+            <a href="#deep-dive" class="btn btn-primary btn-sm">How It Works
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
+              Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: MediAI -->
+      <article class="project reverse" data-reveal>
+        <div class="project-visual">
+          <img class="project-shot" src="assets/MediAI.jpeg" alt="MediAI medical translation platform screenshot" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-tag wip">In Progress</span>
+            <span class="project-tag">Full-Stack · AI</span>
+          </div>
+          <h3>MediAI: Medical Document Translation</h3>
+          <p class="desc">A full-stack platform that translates medical documents with AI while preserving professional terminology, layout, and formatting. Documents flow from upload → parsing → GPT-4 translation → QA validation → a formatted DOCX export that mirrors the original 1:1.</p>
+          <ul class="feat-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Auth &amp; project management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>DOCX parse &amp; mirror render</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>AI medical translation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>QA &amp; terminology checks</li>
+          </ul>
+          <div class="proj-tech"><span>Next.js 14</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>PostgreSQL</span><span>Tailwind</span><span>OpenAI GPT-4</span></div>
+          <div class="proj-actions">
+            <a href="#deep-dive" class="btn btn-primary btn-sm">View Architecture
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
+              Source Code</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DEEP DIVE ============================ -->
+<section id="deep-dive">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Engineering Deep Dive</span>
+      <h2>How these systems actually work under the&nbsp;hood.</h2>
+      <p>Less screenshots, more architecture. Expand any project to see the data flow, the engineering challenges I hit, and what I took away.</p>
+    </div>
+
+    <div class="dive-list">
+
+      <!-- Dive: Plantify -->
+      <div class="dive" data-reveal>
+        <button class="dive-head" aria-expanded="false">
+          <span class="dive-num">01</span>
+          <span class="dh-main"><h3>Plantify: AI Plant Diagnosis Pipeline</h3><p>From a camera image to identification, care advice, and a persistent garden.</p></span>
+          <span class="dive-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="dive-content"><div class="dive-inner"><div class="dive-pad">
+          <div class="dive-cols">
+            <div>
+              <h4>Plant Diagnosis Flow</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> User captures / uploads image</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Compress &amp; Base64 encode (worker thread)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> POST → Plant.id identification API</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> Parse JSON → PlantData model</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> Results screen + BloomAI care advice</div>
+              </div>
+            </div>
+            <div>
+              <h4>Data Architecture</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">↑</span> Android client (Activities + Fragments)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">⇄</span> OkHttp REST layer</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">AI</span> Plant.id · OpenAI · OpenWeather</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">DB</span> Firebase + local storage (garden, reminders)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">⌂</span> Home dashboard &amp; AlarmManager reminders</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dive-cols">
+            <div>
+              <h4>Engineering Challenges</h4>
+              <ul class="bullets">
+                <li>Keeping network calls and image encoding off the main thread to avoid ANRs</li>
+                <li>Defensive JSON parsing with fallbacks so a malformed API response never crashes a fragment</li>
+                <li>Scheduling reliable watering reminders via AlarmManager that survive reboots (BootReceiver)</li>
+                <li>Managing state across many fragments (Home, Garden, Camera, Weather, AI, Problems)</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Key Learnings</h4>
+              <ul class="bullets">
+                <li>Android architecture &amp; fragment lifecycle</li>
+                <li>Integrating multiple third-party REST APIs</li>
+                <li>Designing AI-powered product flows</li>
+                <li>Mobile UX and state management</li>
+              </ul>
+              <div class="learn-chips"><span>Android</span><span>API Integration</span><span>AI UX</span><span>Persistence</span></div>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- Dive: Voidline -->
+      <div class="dive" data-reveal>
+        <button class="dive-head" aria-expanded="false">
+          <span class="dive-num">02</span>
+          <span class="dh-main"><h3>Voidline: Event-Driven Mod Architecture</h3><p>How a Forge mod hooks game events and renders a real-time HUD.</p></span>
+          <span class="dive-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="dive-content"><div class="dive-inner"><div class="dive-pad">
+          <div class="dive-cols">
+            <div>
+              <h4>Event Flow</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> Minecraft / game event fires</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Forge event bus dispatches</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> Voidline event handler receives</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> Feature module updates state</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> HUD overlay renders / action fires</div>
+              </div>
+            </div>
+            <div>
+              <h4>Slayer HUD Flow</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> Boss spawn detection</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Entity tracking (per-player, by UUID)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> SlayerManager collects SlayerData</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> HUD rendering pipeline</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> Real-time per-tick updates</div>
+              </div>
+            </div>
+          </div>
+          <div class="dive-cols">
+            <div>
+              <h4>Engineering Challenges</h4>
+              <ul class="bullets">
+                <li>Reverse-engineering game mechanics to detect boss spawns reliably</li>
+                <li>Per-player state isolated with a thread-safe <code class="mono">ConcurrentHashMap&lt;UUID, …&gt;</code></li>
+                <li>Real-time event handling without harming frame rate</li>
+                <li>Modular features that can be toggled independently</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Key Learnings</h4>
+              <ul class="bullets">
+                <li>Event-driven architecture in practice</li>
+                <li>Kotlin + Java interop on the JVM</li>
+                <li>Performance-aware rendering</li>
+                <li>Organizing a larger codebase into modules</li>
+              </ul>
+              <div class="learn-chips"><span>Kotlin</span><span>Event Systems</span><span>Performance</span><span>Mixins</span></div>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- Dive: MediAI -->
+      <div class="dive" data-reveal>
+        <button class="dive-head" aria-expanded="false">
+          <span class="dive-num">03</span>
+          <span class="dh-main"><h3>MediAI: Full-Stack Translation Pipeline</h3><p>A production-style architecture spanning frontend, backend, AI and a database.</p></span>
+          <span class="dive-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="dive-content"><div class="dive-inner"><div class="dive-pad">
+          <div class="dive-cols">
+            <div>
+              <h4>System Architecture</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">UI</span> Next.js 14 frontend (App Router)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">API</span> FastAPI backend</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">⚙</span> Business services (parse, translate, QA)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">DB</span> PostgreSQL</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">AI</span> OpenAI GPT-4</div>
+              </div>
+            </div>
+            <div>
+              <h4>Translation Pipeline</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> DOCX upload</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Document parsing &amp; cold-chunking</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> Reference terminology analysis</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> GPT-4 translation</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> QA validation → mirror DOCX export</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Database Model</h4>
+            <div class="schema-row">
+              <span class="schema-tbl">Users</span>
+              <span class="schema-tbl">Projects</span>
+              <span class="schema-tbl">Documents</span>
+              <span class="schema-tbl">Sections</span>
+              <span class="schema-tbl">Translation Jobs</span>
+              <span class="schema-tbl">QA Reports</span>
+            </div>
+          </div>
+          <div class="dive-cols">
+            <div>
+              <h4>Engineering Challenges</h4>
+              <ul class="bullets">
+                <li>Processing large documents without losing structure</li>
+                <li>Maintaining terminology consistency against a reference doc</li>
+                <li>Background job management for long translations</li>
+                <li>Preserving 1:1 formatting (styles, tables, numbering) on export</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Key Learnings</h4>
+              <ul class="bullets">
+                <li>Full-stack system design</li>
+                <li>Database modeling &amp; relationships</li>
+                <li>Designing scalable REST APIs</li>
+                <li>AI output validation &amp; QA workflows</li>
+              </ul>
+              <div class="learn-chips"><span>Full-Stack</span><span>System Design</span><span>PostgreSQL</span><span>AI Pipelines</span></div>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- Dive: Recoloring -->
+      <div class="dive" data-reveal>
+        <button class="dive-head" aria-expanded="false">
+          <span class="dive-num">04</span>
+          <span class="dh-main"><h3>Recoloring Engine: Image Processing Pipeline</h3><p>Transforming hundreds of texture assets through a configurable pipeline.</p></span>
+          <span class="dive-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="dive-content"><div class="dive-inner"><div class="dive-pad">
+          <div class="dive-cols">
+            <div>
+              <h4>Processing Pipeline</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> Texture pack input</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Recursive folder traversal (os.walk)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> Asset detection by name / folder</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> Hue-map lookup per category</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> HSV transform → export variant</div>
+              </div>
+            </div>
+            <div>
+              <h4>Recoloring Logic</h4>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-ic">1</span> Load texture (RGBA)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">2</span> Category detection (item / block / entity / GUI)</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">3</span> Per-pixel RGB→HSV, shift hue, HSV→RGB</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">4</span> Preserve alpha; lift near-black so hue shows</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step"><span class="fs-ic">5</span> Write recolored output</div>
+              </div>
+            </div>
+          </div>
+          <div class="dive-cols">
+            <div>
+              <h4>Engineering Challenges</h4>
+              <ul class="bullets">
+                <li>Preserving texture shading and transparency during recoloring</li>
+                <li>Handling many asset categories with separate hue maps &amp; gradient rules</li>
+                <li>Processing hundreds of files efficiently in one pass</li>
+                <li>Making the rules configurable rather than hard-coded per file</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Key Learnings</h4>
+              <ul class="bullets">
+                <li>Automation &amp; scalable script design</li>
+                <li>Color theory: HSV manipulation algorithms</li>
+                <li>File-system operations at scale</li>
+                <li>Designing for configurability</li>
+              </ul>
+              <div class="learn-chips"><span>Python</span><span>Pillow</span><span>HSV</span><span>Automation</span></div>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EXPERIENCE ============================ -->
+<section id="experience" class="section-soft">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Experience</span>
+      <h2>Where I've put my eye for detail to&nbsp;work.</h2>
+      <p>Early experience testing software taught me how real users break things, and how to report it so it actually gets fixed.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item" data-reveal>
+        <span class="tl-dot"></span>
+        <span class="tl-period">Freelance</span>
+        <h3>Freelance Game Tester</h3>
+        <p class="tl-role">Quality assurance &amp; playtesting</p>
+        <ul class="bullets">
+          <li>Ran structured playtesting sessions across multiple games</li>
+          <li>Reported bugs with clear, reproducible steps developers could act on</li>
+          <li>Evaluated user experience and flagged friction points</li>
+          <li>Provided actionable feedback that fed into improvements</li>
+        </ul>
+      </div>
+
+      <div class="tl-item" data-reveal data-delay="1">
+        <span class="tl-dot"></span>
+        <span class="tl-period">Volunteer</span>
+        <h3>Volunteer Game Tester</h3>
+        <p class="tl-role">Beta-testing for friends &amp; games I play</p>
+        <ul class="bullets">
+          <li>Offered free beta-testing for indie developers and games I enjoy</li>
+          <li>Conducted hands-on playtesting sessions and logged issues</li>
+          <li>Wrote detailed reproduction steps for reported bugs</li>
+          <li>Shared honest feedback to help projects improve</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GITHUB ============================ -->
+<section id="github">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Open Source</span>
+      <h2>My code is public. Go ahead and read&nbsp;it.</h2>
+      <p>A look at what I'm building on GitHub. The best way to judge a developer is to read their code.</p>
+    </div>
+
+    <div class="gh-grid">
+      <article class="repo-card" data-reveal>
+        <div class="repo-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+          <h3>Voidline</h3>
+        </div>
+        <p class="rd">Minecraft Forge 1.8.9 mod in Kotlin enhancing Hypixel SkyBlock Slayer gameplay: HUD overlays, boss tracking, modular features.</p>
+        <div class="repo-foot">
+          <span class="rf"><span class="lang" style="background:#A97BFF"></span>Kotlin</span>
+          <span class="rf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>MIT</span>
+          <span class="rf">Updated 2025</span>
+        </div>
+      </article>
+
+      <article class="repo-card" data-reveal data-delay="1">
+        <div class="repo-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          <h3>Plantify</h3>
+        </div>
+        <p class="rd">AI-powered Android app: plant identification, garden management, BloomAI care chatbot, weather and watering reminders.</p>
+        <div class="repo-foot">
+          <span class="rf"><span class="lang" style="background:#b07219"></span>Java</span>
+          <span class="rf">Android</span>
+          <span class="rf">Updated 2025</span>
+        </div>
+      </article>
+
+      <article class="repo-card" data-reveal>
+        <div class="repo-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
+          <h3>Texture Recolorer</h3>
+        </div>
+        <p class="rd">Python automation that batch-recolors Minecraft texture packs via HSV hue shifting and gradient rules, preserving transparency.</p>
+        <div class="repo-foot">
+          <span class="rf"><span class="lang" style="background:#3572A5"></span>Python</span>
+          <span class="rf">Pillow</span>
+          <span class="rf">Updated 2025</span>
+        </div>
+      </article>
+
+      <article class="repo-card" data-reveal data-delay="1">
+        <div class="repo-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M2 20h20"/></svg>
+          <h3>MediAI</h3>
+        </div>
+        <p class="rd">Full-stack medical document translation platform: Next.js + FastAPI + PostgreSQL with a GPT-4 translation and QA pipeline.</p>
+        <div class="repo-foot">
+          <span class="rf"><span class="lang" style="background:#2b7489"></span>TypeScript</span>
+          <span class="rf">Full-Stack</span>
+          <span class="rf">In progress</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="contrib" data-reveal aria-hidden="true" id="contrib"></div>
+
+    <div class="gh-cta" data-reveal>
+      <p><b>Want to see more?</b> Pinned repos, contribution history and works-in-progress live on my profile.</p>
+      <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
+        @IcyDroplet on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RESUME ============================ -->
+<section id="resume" class="section-soft">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Resume</span>
+      <h2>Everything in one clean, printable&nbsp;page.</h2>
+      <p>Prefer the traditional format? Download or print a recruiter-friendly resume.</p>
+    </div>
+
+    <div class="resume-wrap">
+      <div class="resume-doc" data-reveal aria-hidden="true">
+        <div class="rd-h"></div>
+        <div class="rd-s"></div>
+        <div class="rd-sec"></div>
+        <div class="rd-line" style="width:92%"></div>
+        <div class="rd-line" style="width:80%"></div>
+        <div class="rd-line" style="width:88%"></div>
+        <div class="rd-sec"></div>
+        <div class="rd-line" style="width:70%"></div>
+        <div class="rd-line" style="width:84%"></div>
+        <div class="rd-line" style="width:60%"></div>
+        <div class="rd-sec"></div>
+        <div class="rd-line" style="width:90%"></div>
+        <div class="rd-line" style="width:76%"></div>
+      </div>
+
+      <div class="resume-side" data-reveal data-delay="1">
+        <h3>Shon Yudassin, Software Developer</h3>
+        <p>A one-page summary of my education, projects, skills and experience, formatted to be skimmed in under a minute and to print cleanly.</p>
+        <ul class="res-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Education &amp; relevant coursework</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Highlighted projects with impact</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Technical skills, grouped clearly</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contact details &amp; links</li>
+        </ul>
+        <div class="res-actions">
+          <a href="assets/resume.pdf" class="btn btn-primary" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download PDF</a>
+          <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+            Print version</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info" data-reveal>
+      <span class="eyebrow">Contact</span>
+      <h2>Let's build something.</h2>
+      <p>Open to internships, freelance projects, and conversations about software. I usually reply within a day.</p>
+
+      <div class="contact-channels">
+        <a class="channel" href="mailto:saenqqq@gmail.com">
+          <span class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+          <div><b>Email</b><span>saenqqq@gmail.com</span></div>
+        </a>
+        <a class="channel" href="https://www.linkedin.com/in/shon-yudassin-020464418" target="_blank" rel="noopener">
+          <span class="ch-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.3 18.3v-7H6v7zM7.1 10a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm11.2 8.3v-3.8c0-2-1.1-3-2.5-3a2.2 2.2 0 0 0-2 1.1v-.9h-2.3v7h2.3v-3.7c0-1 .2-1.9 1.4-1.9s1.2 1.1 1.2 2v3.6z"/></svg></span>
+          <div><b>LinkedIn</b><span>shon-yudassin</span></div>
+        </a>
+        <a class="channel" href="tel:+972587716171">
+          <span class="ch-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <div><b>Phone</b><span>058-771-6171</span></div>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" novalidate data-reveal data-delay="1">
+      <div class="field row">
+        <div>
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Jane Doe" required />
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div>
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required />
+          <div class="err">Please enter a valid email.</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" placeholder="Internship opportunity" required />
+        <div class="err">Please add a subject.</div>
+      </div>
+      <div class="field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" placeholder="Tell me a bit about what you have in mind…" required></textarea>
+        <div class="err">Please write a short message.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        Send message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+      </button>
+      <div class="form-status" id="formStatus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Thanks! Your message is ready. Opening your email client.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="logo"><span class="logo-mark">SY</span><span>Shon Yudassin</span></a>
+        <p>Computer Science student &amp; software developer building real, working systems.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Navigate</h4>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#deep-dive">Engineering</a>
+        </div>
+        <div class="foot-col">
+          <h4>More</h4>
+          <a href="#experience">Experience</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="year"></span> Shon Yudassin. Built from scratch with HTML, CSS &amp; vanilla JS.</span>
+      <div class="foot-social">
+        <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg></a>
+        <a href="mailto:saenqqq@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+        <a href="https://www.linkedin.com/in/shon-yudassin-020464418" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.3 18.3v-7H6v7zM7.1 10a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm11.2 8.3v-3.8c0-2-1.1-3-2.5-3a2.2 2.2 0 0 0-2 1.1v-.9h-2.3v7h2.3v-3.7c0-1 .2-1.9 1.4-1.9s1.2 1.1 1.2 2v3.6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function () {
+  "use strict";
+  // Animations always play, regardless of the OS reduced-motion setting,
+  // since this is a personal portfolio where the motion is intended.
+  const reduceMotion = false;
+  const NAV_OFFSET = 64; // sticky nav height; used by scroll-spy + smooth-scroll
+
+  /* ---------- Theme ---------- */
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    root.setAttribute('data-theme', 'dark');
+  }
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    if (dark) { root.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+    else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+  });
+
+  /* ---------- Year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Mobile menu ---------- */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const toggleMenu = (open) => {
+    mobileMenu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+  };
+  menuBtn.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+  /* ---------- Active section highlighting (scroll spy) ----------
+     Deterministic: on each scroll, pick the section whose top has passed
+     the activation line (just below the sticky nav). This avoids the
+     IntersectionObserver ordering bug where overlapping sections fought
+     over the active state and skipped entries. */
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const linkMap = {};
+  navLinks.forEach(a => { const id = a.getAttribute('href').slice(1); if (id) linkMap[id] = a; });
+  const spySections = Object.keys(linkMap)
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  let currentActive = null;
+  function updateActiveNav() {
+    const line = window.scrollY + NAV_OFFSET + 24; // activation line below the nav
+    let activeId = spySections.length ? spySections[0].id : null;
+    for (const sec of spySections) {
+      if (sec.offsetTop <= line) activeId = sec.id;
+      else break; // sections are in document order, so we can stop early
+    }
+    // if scrolled to the very bottom, force the last section active
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      activeId = spySections[spySections.length - 1].id;
+    }
+    if (activeId !== currentActive) {
+      currentActive = activeId;
+      navLinks.forEach(a => a.classList.toggle('active', linkMap[activeId] === a));
+    }
+  }
+
+  /* ---------- Nav scrolled state + progress + back-to-top ---------- */
+  const nav = document.getElementById('nav');
+  const progress = document.getElementById('progress');
+  const toTop = document.getElementById('toTop');
+  let ticking = false;
+  function onScroll() {
+    const y = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    nav.classList.toggle('scrolled', y > 8);
+    toTop.classList.toggle('show', y > 600);
+    updateActiveNav();
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', () => smoothScrollTo(0));
+
+  /* ---------- Scroll reveal ---------- */
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---------- Animated counters ---------- */
+  const counters = document.querySelectorAll('[data-count]');
+  const runCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    const dur = 1400; const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window) {
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(c => co.observe(c));
+  } else { counters.forEach(runCounter); }
+
+  /* ---------- Hero code typing (staggered line reveal) ---------- */
+  const codeLines = document.querySelectorAll('#codeBody .ln');
+  codeLines.forEach((ln, i) => { ln.style.animationDelay = (0.25 + i * 0.12) + 's'; });
+
+  /* ---------- Hero lead typewriter (loops: type → hold → erase → repeat) ---------- */
+  const lead = document.getElementById('heroLead');
+  if (lead) {
+    const fullText = lead.getAttribute('data-text') || '';
+    const typeEl = lead.querySelector('.type');
+    if (reduceMotion) {
+      typeEl.textContent = fullText;
+      lead.classList.add('done');
+    } else {
+      const HOLD_FULL = 2600;   // pause once fully typed
+      const HOLD_EMPTY = 450;   // pause once erased, before retyping
+      const ERASE_SPEED = 7;    // ms per deleted char (snappy delete)
+
+      const typing = () => {
+        let i = 0;
+        const step = () => {
+          typeEl.textContent = fullText.slice(0, i);
+          i++;
+          if (i > fullText.length) { setTimeout(erasing, HOLD_FULL); return; }
+          const ch = fullText[i - 2] || '';
+          let delay = 18 + Math.random() * 18;
+          if (ch === ',' || ch === ':') delay += 130;
+          if (ch === '.') delay += 190;
+          setTimeout(step, delay);
+        };
+        step();
+      };
+      const erasing = () => {
+        let i = fullText.length;
+        const step = () => {
+          typeEl.textContent = fullText.slice(0, i);
+          i--;
+          if (i < 0) { setTimeout(typing, HOLD_EMPTY); return; }
+          setTimeout(step, ERASE_SPEED);
+        };
+        step();
+      };
+      setTimeout(typing, 650);
+    }
+  }
+
+  /* ---------- Accordions (deep dive) ---------- */
+  document.querySelectorAll('.dive-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dive = btn.closest('.dive');
+      const open = dive.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  /* ---------- Auto-open the relevant deep-dive when a project CTA points to #deep-dive ---------- */
+  // (kept simple: opens the first dive so the section never looks empty on jump)
+  // Users can expand any panel manually.
+
+  /* ---------- Contribution graph (decorative, deterministic) ---------- */
+  const contrib = document.getElementById('contrib');
+  if (contrib) {
+    const cells = 7 * 26; // ~6 months
+    let seed = 7;
+    const rng = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+    let html = '';
+    for (let i = 0; i < cells; i++) {
+      const r = rng();
+      let cls = '';
+      if (r > 0.86) cls = 'l4'; else if (r > 0.72) cls = 'l3';
+      else if (r > 0.5) cls = 'l2'; else if (r > 0.28) cls = 'l1';
+      html += '<i class="' + cls + '"></i>';
+    }
+    contrib.innerHTML = html;
+  }
+
+
+  /* ---------- Smooth-scroll for in-page anchors ----------
+     Custom JS animation so it works even when the OS / browser has
+     reduced-motion enabled (which disables native CSS smooth scroll).
+     Navigation scrolling is a usability feature, not decoration. */
+  let scrollAnim = null;
+  function smoothScrollTo(targetY) {
+    if (scrollAnim) cancelAnimationFrame(scrollAnim);
+    const startY = window.scrollY;
+    const maxY = document.documentElement.scrollHeight - window.innerHeight;
+    const destY = Math.max(0, Math.min(targetY, maxY));
+    const dist = destY - startY;
+    if (Math.abs(dist) < 2) { window.scrollTo(0, destY); return; }
+    // duration scales with distance, clamped for a quick-but-smooth feel
+    const dur = Math.min(900, Math.max(380, Math.abs(dist) * 0.5));
+    let startT = null;
+    const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+    const frame = (now) => {
+      if (startT === null) startT = now;
+      const p = Math.min((now - startT) / dur, 1);
+      window.scrollTo(0, startY + dist * easeInOutCubic(p));
+      if (p < 1) scrollAnim = requestAnimationFrame(frame);
+      else scrollAnim = null;
+    };
+    scrollAnim = requestAnimationFrame(frame);
+  }
+  // cancel the animation if the user scrolls manually mid-flight
+  ['wheel','touchstart'].forEach(evt =>
+    window.addEventListener(evt, () => { if (scrollAnim) { cancelAnimationFrame(scrollAnim); scrollAnim = null; } }, { passive: true })
+  );
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (ev) => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      ev.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      smoothScrollTo(top);
+      history.replaceState(null, '', id);
+    });
+  });
+
+  /* ---------- Placeholder links (LinkedIn / phone) ---------- */
+  document.querySelectorAll('[data-placeholder]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (el.getAttribute('href') === '#') {
+        e.preventDefault();
+        alert(el.getAttribute('data-placeholder'));
+      }
+    });
+  });
+
+  /* ---------- Contact form: validation + mailto handoff ---------- */
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const validators = {
+    name: v => v.trim().length >= 2,
+    email: v => emailRe.test(v.trim()),
+    subject: v => v.trim().length >= 2,
+    message: v => v.trim().length >= 10
+  };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let ok = true;
+    Object.keys(validators).forEach(name => {
+      const input = form.elements[name];
+      const field = input.closest('.field') || input.parentElement;
+      const valid = validators[name](input.value);
+      field.classList.toggle('invalid', !valid);
+      if (!valid && ok) input.focus();
+      ok = ok && valid;
+    });
+    if (!ok) return;
+
+    const name = encodeURIComponent(form.elements.name.value.trim());
+    const subject = encodeURIComponent(form.elements.subject.value.trim());
+    const message = encodeURIComponent(form.elements.message.value.trim());
+    const fromEmail = form.elements.email.value.trim();
+    const body = message + '%0D%0A%0D%0AFrom: ' + name + ' (' + encodeURIComponent(fromEmail) + ')';
+    status.classList.add('show');
+    window.location.href = 'mailto:saenqqq@gmail.com?subject=' + subject + '&body=' + body;
+    setTimeout(() => { form.reset(); status.classList.remove('show'); }, 6000);
+  });
+  // clear invalid state on input
+  form.querySelectorAll('input, textarea').forEach(inp => {
+    inp.addEventListener('input', () => {
+      const field = inp.closest('.field') || inp.parentElement;
+      field.classList.remove('invalid');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
