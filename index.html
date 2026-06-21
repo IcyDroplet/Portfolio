@@ -654,12 +654,18 @@ header.nav.scrolled { border-bottom-color: var(--border); box-shadow: var(--shad
    ============================================================ */
 .gh-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 760px){ .gh-grid { grid-template-columns: 1fr; } }
-.repo-card { padding: 22px; border:1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); display:flex; flex-direction:column; }
+.repo-card { position: relative; padding: 22px; border:1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease); display:flex; flex-direction:column; color: inherit; }
 .repo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-line); }
-.repo-top { display:flex; align-items:center; gap:9px; margin-bottom: 9px; }
+.repo-card:hover .repo-top h3 { color: var(--accent); }
+/* Clickable affordance: an arrow that appears top-right on hover */
+.repo-go { position:absolute; top:20px; right:20px; color: var(--text-mute); opacity:0; transform: translate(-3px,3px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), color .25s var(--ease); }
+.repo-card:hover .repo-go { opacity:1; transform: none; color: var(--accent); }
+.repo-go svg { width:16px; height:16px; }
+.repo-top { display:flex; align-items:center; gap:9px; margin-bottom: 9px; padding-right: 24px; }
 .repo-top svg { width: 18px; height:18px; color: var(--text-mute); }
-.repo-top h3 { font-size: 1.05rem; }
+.repo-top h3 { font-size: 1.05rem; transition: color .25s var(--ease); }
 .repo-card .rd { font-size: var(--fs-sm); color: var(--text-soft); margin-bottom: 16px; flex:1; }
 .repo-foot { display:flex; align-items:center; gap:16px; font-size: var(--fs-xs); color: var(--text-mute); }
 .repo-foot .rf { display:flex; align-items:center; gap:5px; }
@@ -823,7 +829,7 @@ footer.site {
 
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="availability" data-reveal><span class="dot"></span> Open to internships &amp; freelance work</span>
+      <span class="availability" data-reveal><span class="dot"></span> Open to internships &amp; work</span>
       <h1 data-reveal data-delay="1">Shon Yudassin<span class="accent">.</span></h1>
       <span class="title" data-reveal data-delay="2">Computer Science Student &amp; Software Developer</span>
       <p class="lead" id="heroLead" data-reveal data-delay="3" data-text="Building Android applications, AI-powered tools, software solutions, and game modifications, with a focus on practical problem solving and clean user experience."><span class="lead-ghost" aria-hidden="true">Building Android applications, AI-powered tools, software solutions, and game modifications, with a focus on practical problem solving and clean user experience.</span><span class="lead-live"><span class="type"></span><span class="caret" aria-hidden="true"></span></span></p>
@@ -898,11 +904,11 @@ footer.site {
       <div class="about-body" data-reveal data-delay="1">
         <p class="about-lead">I'm a Computer Science student and software developer who enjoys turning ideas into shipped products, from Android apps with AI inside them to automation scripts and game modifications.</p>
         <p>My work spans <strong>mobile development</strong>, <strong>AI integration</strong>, and <strong>backend &amp; tooling</strong>. I built <strong>Plantify</strong>, an AI-powered Android app that identifies plants and helps people care for them; I'm building <strong>Voidline</strong>, a performance-focused Minecraft mod in Kotlin; and I've shipped Python automation that recolors hundreds of texture assets in a single run.</p>
-        <p>I'm drawn to the parts of software most people skip: handling errors gracefully, keeping work off the main thread, persisting state correctly, and designing things so they stay clean as they grow. I learn fast, ask good questions, and care about the people who actually use what I build.</p>
+        <p>I'm drawn to the parts of software most people skip: handling errors, keeping work off the main thread, persisting state correctly, and designing things so they stay clean as they grow. I learn fast, ask good questions, and care about the people who actually use what I build.</p>
 
         <div class="facts">
           <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><div><b>CS Student</b><span>Studying software engineering</span></div></div>
-          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg><div><b>Android Focus</b><span>Java, SDK, Firebase</span></div></div>
+          <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg><div><b>Current Focus</b><span>Android, Java, Ai, C#</span></div></div>
           <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><div><b>AI Integration</b><span>OpenAI, vision APIs</span></div></div>
           <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><div><b>Always Learning</b><span>New stacks, new domains</span></div></div>
         </div>
@@ -911,7 +917,7 @@ footer.site {
           <div class="stat"><div class="num" data-count="4" data-suffix="">0</div><div class="lbl">Projects Built</div></div>
           <div class="stat"><div class="num" data-count="3" data-suffix="+">0</div><div class="lbl">Years Programming</div></div>
           <div class="stat"><div class="num" data-count="5" data-suffix="">0</div><div class="lbl">Languages</div></div>
-          <div class="stat"><div class="num" data-count="100" data-suffix="s">0</div><div class="lbl">Assets Automated</div></div>
+          <div class="stat"><div class="num" data-count="100" data-suffix="s">0</div><div class="lbl">Bugs fixed</div></div>
         </div>
       </div>
     </div>
@@ -932,14 +938,14 @@ footer.site {
         <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
         <h3>Languages</h3>
         <p>The core languages I write production and personal code in.</p>
-        <div class="skill-tags"><span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span><span>C#</span><span>Kotlin</span></div>
+        <div class="skill-tags"><span>Java</span><span>Python</span><span>C#</span><span>SQL</span><span>JavaScript</span><span>Bash</span></div>
       </article>
 
       <article class="skill-card" data-reveal data-delay="1">
         <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
         <h3>Mobile Development</h3>
         <p>Native Android apps with real navigation, storage and lifecycle handling.</p>
-        <div class="skill-tags"><span>Android Studio</span><span>Android SDK</span><span>Fragments</span><span>Mobile UI Design</span></div>
+        <div class="skill-tags"><span>Android Studio</span><span>Android SDK</span><span>Mobile UI Design</span></div>
       </article>
 
       <article class="skill-card" data-reveal data-delay="2">
@@ -960,7 +966,7 @@ footer.site {
         <div class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 6h6a3 3 0 0 1 3 3M6 9v6"/></svg></div>
         <h3>Tools &amp; Workflow</h3>
         <p>The day-to-day environment I work and version control in.</p>
-        <div class="skill-tags"><span>Git</span><span>GitHub</span><span>IntelliJ IDEA</span><span>Android Studio</span><span>VS Code</span><span>AI-assisted tools</span></div>
+        <div class="skill-tags"><span>GitHub</span><span>Unity</span><span>IntelliJ IDEA</span><span>Android Studio</span><span>VS Code</span><span>AI-assisted tools</span></div>
       </article>
 
       <article class="skill-card" data-reveal data-delay="2">
@@ -1006,9 +1012,8 @@ footer.site {
           <div class="proj-actions">
             <a href="#deep-dive" class="btn btn-primary btn-sm">View Case Study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
-              Source Code</a>
+          
+              </a>
           </div>
         </div>
       </article>
@@ -1044,7 +1049,7 @@ footer.site {
           <div class="proj-actions">
             <a href="#deep-dive" class="btn btn-primary btn-sm">Technical Breakdown
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="https://github.com/IcyDroplet/Voidline" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            <a href="https://github.com/IcyDroplet/Voidline/tree/master" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
               Source Code</a>
           </div>
@@ -1077,7 +1082,7 @@ footer.site {
           <div class="proj-actions">
             <a href="#deep-dive" class="btn btn-primary btn-sm">How It Works
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            <a href="https://github.com/IcyDroplet/Actm" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
               Source Code</a>
           </div>
@@ -1106,9 +1111,7 @@ footer.site {
           <div class="proj-actions">
             <a href="#deep-dive" class="btn btn-primary btn-sm">View Architecture
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="https://github.com/IcyDroplet" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"/></svg>
-              Source Code</a>
+          
           </div>
         </div>
       </article>
@@ -1437,11 +1440,12 @@ footer.site {
     <div class="section-head" data-reveal>
       <span class="eyebrow">Open Source</span>
       <h2>My code is public. Go ahead and read&nbsp;it.</h2>
-      <p>A look at what I'm building on GitHub. The best way to judge a developer is to read their code.</p>
+      <p>A look at what I'm building on GitHub or my hyper compressed documentation on unreleased projects. The best way to judge a developer is to read their code.</p>
     </div>
 
     <div class="gh-grid">
-      <article class="repo-card" data-reveal>
+      <a class="repo-card" href="https://github.com/IcyDroplet/Voidline/tree/master" target="_blank" rel="noopener" data-reveal>
+        <span class="repo-go" aria-label="Opens GitHub repository"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
         <div class="repo-top">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
           <h3>Voidline</h3>
@@ -1450,11 +1454,12 @@ footer.site {
         <div class="repo-foot">
           <span class="rf"><span class="lang" style="background:#A97BFF"></span>Kotlin</span>
           <span class="rf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>MIT</span>
-          <span class="rf">Updated 2025</span>
+          <span class="rf">View on GitHub</span>
         </div>
-      </article>
+      </a>
 
-      <article class="repo-card" data-reveal data-delay="1">
+      <a class="repo-card" href="assets/plantify.pdf" target="_blank" rel="noopener" data-reveal data-delay="1">
+        <span class="repo-go" aria-label="Opens PDF documentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
         <div class="repo-top">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
           <h3>Plantify</h3>
@@ -1463,11 +1468,12 @@ footer.site {
         <div class="repo-foot">
           <span class="rf"><span class="lang" style="background:#b07219"></span>Java</span>
           <span class="rf">Android</span>
-          <span class="rf">Updated 2025</span>
+          <span class="rf">Read compressed documentation</span>
         </div>
-      </article>
+      </a>
 
-      <article class="repo-card" data-reveal>
+      <a class="repo-card" href="https://github.com/IcyDroplet/Actm" target="_blank" rel="noopener" data-reveal>
+        <span class="repo-go" aria-label="Opens GitHub repository"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
         <div class="repo-top">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
           <h3>Texture Recolorer</h3>
@@ -1476,11 +1482,12 @@ footer.site {
         <div class="repo-foot">
           <span class="rf"><span class="lang" style="background:#3572A5"></span>Python</span>
           <span class="rf">Pillow</span>
-          <span class="rf">Updated 2025</span>
+          <span class="rf">View on GitHub</span>
         </div>
-      </article>
+      </a>
 
-      <article class="repo-card" data-reveal data-delay="1">
+      <a class="repo-card" href="assets/medical.pdf" target="_blank" rel="noopener" data-reveal data-delay="1">
+        <span class="repo-go" aria-label="Opens PDF documentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
         <div class="repo-top">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M2 20h20"/></svg>
           <h3>MediAI</h3>
@@ -1489,9 +1496,9 @@ footer.site {
         <div class="repo-foot">
           <span class="rf"><span class="lang" style="background:#2b7489"></span>TypeScript</span>
           <span class="rf">Full-Stack</span>
-          <span class="rf">In progress</span>
+          <span class="rf">Read compressed documentation</span>
         </div>
-      </article>
+      </a>
     </div>
 
     <div class="contrib" data-reveal aria-hidden="true" id="contrib"></div>
@@ -1559,7 +1566,7 @@ footer.site {
     <div class="contact-info" data-reveal>
       <span class="eyebrow">Contact</span>
       <h2>Let's build something.</h2>
-      <p>Open to internships, freelance projects, and conversations about software. I usually reply within a day.</p>
+      <p>Open to internships, work, freelance projects, and conversations about software. I usually reply within a day.</p>
 
       <div class="contact-channels">
         <a class="channel" href="mailto:saenqqq@gmail.com">
@@ -1695,14 +1702,20 @@ footer.site {
   navLinks.forEach(a => { const id = a.getAttribute('href').slice(1); if (id) linkMap[id] = a; });
   const spySections = Object.keys(linkMap)
     .map(id => document.getElementById(id))
-    .filter(Boolean);
+    .filter(Boolean)
+    // sort by real document position — nav order doesn't always match the DOM
+    // order (e.g. Projects is listed before Skills but sits after it), and the
+    // loop below relies on document order to break early correctly.
+    .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
   let currentActive = null;
   function updateActiveNav() {
     const line = window.scrollY + NAV_OFFSET + 24; // activation line below the nav
     let activeId = spySections.length ? spySections[0].id : null;
     for (const sec of spySections) {
-      if (sec.offsetTop <= line) activeId = sec.id;
-      else break; // sections are in document order, so we can stop early
+      // document-relative top, robust against offsetParent quirks
+      const top = sec.getBoundingClientRect().top + window.scrollY;
+      if (top <= line) activeId = sec.id;
+      else break; // sections are sorted in document order, so we can stop early
     }
     // if scrolled to the very bottom, force the last section active
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
@@ -1751,7 +1764,7 @@ footer.site {
     const target = parseInt(el.getAttribute('data-count'), 10);
     const suffix = el.getAttribute('data-suffix') || '';
     if (reduceMotion) { el.textContent = target + suffix; return; }
-    const dur = 1400; const start = performance.now();
+    const dur = 3000; const start = performance.now();
     const tick = (now) => {
       const p = Math.min((now - start) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
@@ -1856,7 +1869,7 @@ footer.site {
     const dist = destY - startY;
     if (Math.abs(dist) < 2) { window.scrollTo(0, destY); return; }
     // duration scales with distance, clamped for a quick-but-smooth feel
-    const dur = Math.min(900, Math.max(380, Math.abs(dist) * 0.5));
+    const dur = Math.min(900, Math.max(380, Math.abs(dist) * 0.2));
     let startT = null;
     const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
     const frame = (now) => {
